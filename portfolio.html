@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="id" x-data="{}" x-cloak>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Nama Anda (Dark)</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    @layer base {
+
+      html,
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+
+      [x-cloak] {
+        display: none !important;
+      }
+    }
+
+    .no-shadow * {
+      box-shadow: none !important;
+    }
+
+    .accent-anim {
+      background: linear-gradient(90deg, #5eead4 0%, #60a5fa 50%, #a78bfa 100%);
+      background-size: 200% 200%;
+      animation: accentShift 6s ease-in-out infinite;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @keyframes accentShift {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    :focus {
+      outline: 2px solid rgba(99, 102, 241, 0.12);
+      outline-offset: 2px;
+    }
+
+    .backdrop-fade {
+      transition: opacity .22s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen no-shadow">
+
+  <header x-data="{open:false}"
+    class="fixed inset-x-0 top-0 z-40 bg-transparent/30 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-sky-600 to-violet-500 text-gray-900 font-bold">
+            AV</div>
+          <div class="leading-tight">
+            <div class="font-semibold">Averroes Rillo Harjo</div>
+            <div class="text-xs text-gray-400">College student • Coder •
+              Engineering</div>
+          </div>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-4">
+          <a href="#about" class="px-3 py-2 rounded-md text-sm hover:bg-gray-800/60">About</a>
+          <a href="#projects" class="px-3 py-2 rounded-md text-sm hover:bg-gray-800/60">Projects</a>
+          <a href="#contact" class="px-3 py-2 rounded-md text-sm hover:bg-gray-800/60">Contact</a>
+        </nav>
+
+        <div class="md:hidden">
+          <button @click="open = !open" :aria-expanded="open" aria-label="Toggle menu"
+            class="p-2 rounded-md hover:bg-gray-800/50">
+            <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div x-show="open" x-transition.opacity class="md:hidden bg-gray-900/95 border-t border-gray-800">
+      <div class="px-4 pt-4 pb-6 space-y-2">
+        <a href="#about" @click="open=false" class="block px-3 py-2 rounded-md text-sm hover:bg-gray-800/60">About</a>
+        <a href="#projects" @click="open=false"
+          class="block px-3 py-2 rounded-md text-sm hover:bg-gray-800/60">Projects</a>
+        <a href="#faq" @click="open=false" class="block px-3 py-2 rounded-md text-sm hover:bg-gray-800/60">FaQ</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="md:col-span-2">
+          <div class="rounded-xl p-6 bg-gray-900/60 border border-gray-800">
+            <span class="inline-block px-3 py-1 rounded-full text-xs bg-gray-800 text-sky-300">Hi,
+              let me introduce
+              myself</span>
+            <h1 class="mt-6 text-3xl sm:text-5xl font-extrabold leading-tight">
+              <span class="accent-anim">Averroes Rillo H</span>
+              <div class="text-gray-400 text-xl font-semibold mt-1">Engineering &
+                Coder</div>
+            </h1>
+            <p class="mt-4 text-gray-400 max-w-2xl">I am currently a student
+              from a vocational school (Software
+              Engineering) who is continuing my studies (Machine
+              Maintenance).</p>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="#projects"
+                class="px-4 py-2 rounded-md font-semibold bg-gradient-to-r from-sky-500 to-violet-500 text-gray-900">See
+                my projects</a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300">HTML</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300">CSS</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300">JavaScript</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300">Laravel</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300">MySQL</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-gray-800 text-gray-300">Laragon</span>
+            </div>
+          </div>
+
+          <section id="projects" class="mt-8" x-data="{openProject:false, selected:{}}">
+            <h2 class="text-2xl font-semibold text-gray-100 mb-4">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+              <article
+                @click="$dispatch('open-project', {title: 'Shortcut Tools V2', desc: 'An extension to speed up editing with 1x click shortcuts in After Effects & Premier Pro.', tags: ['HTML','CSS','JavaScript','After Effect','Premier Pro'], download: 'https://drive.google.com/file/d/1747QteIBzEiiS2_1HBfJQOn3D6zdJw-w/view?usp=sharing'})"
+                class="cursor-pointer rounded-lg p-4 bg-gray-900/50 border border-gray-800 hover:translate-y-[-2px] transition-transform">
+                <h3 class="font-semibold text-gray-100">Shortcut Tools V2</h3>
+                <p class="text-gray-400 text-sm mt-2">An extension to speed up
+                  editing with 1x click shortcuts in After
+                  Effects & Premier Pro.</p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">HTML</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">CSS</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">JavaScript</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">After
+                    Effect</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Premier
+                    Pro</span>
+                </div>
+              </article>
+
+              <article
+                @click="$dispatch('open-project', {title: 'Project B', desc: 'Dashboard sederhana untuk menampilkan data dan grafik.', tags: ['Dashboard','Laravel','Database','Laragon'], download: 'https://drive.google.com/file/d/1ArIfhN66w1fhQrRL9uVVLeALqarhlJ1F/view?usp=sharing'})"
+                class="cursor-pointer rounded-lg p-4 bg-gray-900/50 border border-gray-800 hover:translate-y-[-2px] transition-transform">
+                <h3 class="font-semibold text-gray-100">Bank Laravel</h3>
+                <p class="text-gray-400 text-sm mt-2">Bank application with complete features such as CRUD, login, user,
+                  admin, bank account, transfer, logout, etc.</p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Dashboard</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Laravel</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Database</span>
+                  <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Laragon</span>
+                  </span>
+                </div>
+              </article>
+
+              <!-- <article
+                  @click="$dispatch('open-project', {title: 'Project C', desc: 'Landing page cepat dan responsif untuk kampanye marketing.', tags: ['Landing','Performance'], download: '/download/project-c.zip'})"
+                  class="cursor-pointer rounded-lg p-4 bg-gray-900/50 border border-gray-800 hover:translate-y-[-2px] transition-transform">
+                  <h3 class="font-semibold text-gray-100">Project C</h3>
+                  <p class="text-gray-400 text-sm mt-2">Landing page cepat dan
+                    responsif untuk kampanye marketing.</p>
+                  <div class="mt-3 flex gap-2 flex-wrap">
+                    <span
+                      class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Landing</span>
+                    <span
+                      class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300">Performance</span>
+                  </div>
+                </article> -->
+
+
+              <!-- penutup -->
+            </div>
+
+            <template x-if="openProject">
+              <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+                <div class="bg-gray-800 text-white p-6 rounded-2xl w-[90%] max-w-md relative">
+                  <button @click="openProject = false" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    ✕
+                  </button>
+                  <h2 class="text-xl font-semibold mb-2" x-text="selected.title"></h2>
+                  <p class="text-gray-400 text-sm mb-4" x-text="selected.desc"></p>
+                  <div class="mt-3 flex gap-2 flex-wrap">
+                    <template x-for="tag in selected.tags" :key="tag">
+                      <span class="text-xs px-2 py-1 rounded-full bg-sky-600/20 text-sky-300" x-text="tag"></span>
+                    </template>
+                  </div>
+                  <div class="mt-6 flex justify-end" x-show="download">
+                    <a :href="download" target="_blank"
+                      class="p-3 rounded-md bg-gray-700 hover:bg-gray-600 text-white transition">
+
+                      <svg xmlns="h
+         fill=" none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </div>
+        </template>
+    </section>
+    </div>
+
+    <aside class="md:col-span-1">
+      <div class="rounded-xl p-6 bg-gray-900/60 border border-gray-800 sticky top-[88px]">
+        <div class="flex items-center gap-4">
+          <div
+            class="w-24 h-24 rounded-lg flex items-center justify-center bg-gradient-to-br from-sky-600 to-violet-500 text-gray-900 font-bold text-2xl">
+            AV</div>
+          <div>
+            <div class="font-bold text-lg">Averroes Rillo H</div>
+            <div class="text-sm text-gray-400">College student</div>
+            <div class="text-xs text-gray-500 mt-2">Residing in East Jakarta, Indonesia</div>
+          </div>
+        </div>
+
+        <div class="mt-4 flex flex-col gap-3">
+          <div class="text-sm text-gray-400">Skill</div>
+          <div class="flex justify-between text-sm text-gray-200">
+            <div>Editing Video & Photo</div>
+            <!-- <div>Expert</div> -->
+          </div>
+          <div class="flex justify-between text-sm text-gray-200">
+            <div>Machine Maintenance</div>
+            <!-- <div>Advanced</div> -->
+          </div>
+          <div class="flex justify-between text-sm text-gray-200">
+            <div>Software Engineering </div>
+            <!-- <div>Intermediate</div> -->
+          </div>
+          <div class="mt-3 flex gap-2">
+            <a href="https://github.com/Averosrillo" target="_blank"
+              class="px-3 py-2 rounded-md text-sm bg-gray-800 text-gray-200 hover:bg-gray-700 transition">
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/averroes-rillo-harjo-3644b6293/" target="_blank"
+              class="px-3 py-2 rounded-md text-sm bg-gray-800 text-gray-200 hover:bg-gray-700 transition">
+              LinkedIn
+            </a>
+            <a href="https://www.instagram.com/verozsy/" target="_blank"
+              class="px-3 py-2 rounded-md text-sm bg-gray-800 text-gray-200 hover:bg-gray-700 transition">
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
+    </div>
+
+    <section id="faq" class="mt-10">
+      <div class="rounded-xl p-6 bg-gray-900/60 border border-gray-800">
+        <h3 class="text-2xl font-bold text-center mb-6">General Questions (FAQ)</h3>
+        <div class="space-y-4">
+
+          <div x-data="{ open: false }" class="border border-gray-700 rounded-lg">
+            <button @click="open = !open" class="w-full flex justify-between items-center p-4 text-left">
+              <span class="font-medium">Brief introduction</span>
+              <span x-show="!open">+</span>
+              <span x-show="open">−</span>
+            </button>
+            <div x-show="open" x-transition x-collapse class="px-4 pb-4 text-gray-400">
+              I'm a fresh graduate of SMKN 64 East Jakarta, majoring in Software Engineering. I'm currently a student at the State Polytechnic of Creative Media East Jakarta in Srengseng Sawah, majoring in Machine Maintenance.
+            </div>
+          </div>
+
+          <div x-data="{ open: false }" class="border border-gray-700 rounded-lg">
+            <button @click="open = !open" class="w-full flex justify-between items-center p-4 text-left">
+              <span class="font-medium">What can Averroes Rillo H do?</span>
+              <span x-show="!open">+</span>
+              <span x-show="open">−</span>
+            </button>
+            <div x-show="open" x-transition x-collapse class="px-4 pb-4 text-gray-400">
+                I'm now confident I can create a website and integrate it with a simple database, with BNSP certification at my vocational school as a Junior Coder. I can also edit videos and photos, maintain machines, and so on.
+            </div>
+          </div>
+
+          <div x-data="{ open: false }" class="border border-gray-700 rounded-lg">
+            <button @click="open = !open" class="w-full flex justify-between items-center p-4 text-left">
+              <span class="font-medium">Did Averroes open a commission?</span>
+              <span x-show="!open">+</span>
+              <span x-show="open">−</span>
+            </button>
+            <div x-show="open" x-transition x-collapse class="px-4 pb-4 text-gray-400">
+              Yes, for now it's only for video and photo editing.
+            </div>
+          </div>
+
+          <div x-data="{ open: false }" class="border border-gray-700 rounded-lg">
+            <button @click="open = !open" class="w-full flex justify-between items-center p-4 text-left">
+              <span class="font-medium">How to connect with you?</span>
+              <span x-show="!open">+</span>
+              <span x-show="open">−</span>
+            </button>
+            <div x-show="open" x-transition x-collapse class="px-4 pb-4 text-gray-400">
+              You can connect to my instagram, github or linkedin
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-5 pb-6">
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-4 text-gray-400 text-center">
+        <div>© <span id="year"></span> Averroes Rillo Harjo</div>
+      </div>
+    </footer>
+  </main>
+
+  <div x-data="projectModal()" x-init="init()" x-show="open" x-transition.opacity.duration.200ms
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+
+    <div @click.away="close()" x-transition.scale.origin.center.duration.250ms
+      class="max-w-3xl w-full mx-4 bg-gray-900 border border-gray-800 rounded-lg p-6">
+
+      <div class="flex justify-between items-start">
+        <div>
+          <h3 class="text-xl font-bold" x-text="title"></h3>
+          <p class="text-gray-400 mt-1" x-text="desc"></p>
+        </div>
+        <button @click="close()" class="p-2 rounded-md hover:bg-gray-800/50">✕</button>
+      </div>
+
+      <div class="mt-4 text-sm text-gray-300">
+        Tags: <span class="text-sky-300" x-text="tags.join(', ')"></span>
+      </div>
+
+      <div class="mt-6 flex justify-end" x-show="download">
+        <a :href="download" target="_blank" class="p-3 rounded-md bg-gray-700 hover:bg-gray-600 text-white transition">
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+          </svg>
+        </a>
+      </div>
+
+      <script src="https://unpkg.com/heroicons@2.0.18/dist/heroicons.min.js"></script>
+
+      <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        function projectModal() {
+          return {
+            open: false, title: '', desc: '', tags: [], download: '',
+            init() {
+              window.addEventListener('open-project', e => {
+                this.title = e.detail.title || 'Project';
+                this.desc = e.detail.desc || '';
+                this.tags = e.detail.tags || [];
+                this.download = e.detail.download || '';
+                this.open = true;
+                document.body.style.overflow = 'hidden';
+              });
+            },
+            close() { this.open = false; document.body.style.overflow = ''; }
+          }
+        }
+      </script>
+</body>
+
+</html>
